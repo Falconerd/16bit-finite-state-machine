@@ -8,7 +8,7 @@ print_bits(uint16_t bits)
 {
     unsigned int size = sizeof(uint16_t);
     unsigned int maxPow = 1 << (size*8-1);
-    int i;
+    int i = 0;
     while (maxPow)
     {
         if (i % 4 == 0) printf(" ");
@@ -41,7 +41,6 @@ init_fsm(FSM *fsm)
 uint8_t
 add_state(FSM *fsm)
 {
-    uint16_t counts = fsm->counts;
     uint16_t state_count = fsm->counts & 0xf;
     uint16_t input_count = fsm->counts & 0xf0;
     uint16_t transition_count = fsm->counts & 0xff00;
@@ -58,7 +57,6 @@ add_state(FSM *fsm)
 uint16_t
 add_input(FSM *fsm)
 {
-    uint16_t counts = fsm->counts;
     uint16_t state_count = fsm->counts & 0xf;
     uint16_t input_count = fsm->counts & 0xf0;
     uint16_t transition_count = fsm->counts & 0xff00;
@@ -77,7 +75,6 @@ void
 add_transition(FSM *fsm, uint8_t from_state, uint8_t to_state, uint16_t inputs)
 {
     uint16_t row = 0;
-    uint16_t counts = fsm->counts;
     uint16_t state_count = fsm->counts & 0xf;
     uint16_t input_count = fsm->counts & 0xf0;
     uint16_t transition_count = fsm->counts & 0xff00;
