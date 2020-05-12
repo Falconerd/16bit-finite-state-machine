@@ -10,7 +10,7 @@ main(void)
     uint8_t STATE_IDLE   = add_state(&fsm);
     uint8_t STATE_ACTIVE = add_state(&fsm);
 
-    uint8_t INPUT_X      = add_input(&fsm);
+    uint16_t INPUT_X      = add_input(&fsm);
 
     add_transition(&fsm, STATE_IDLE, STATE_ACTIVE, INPUT_X);
     add_transition(&fsm, STATE_ACTIVE, STATE_IDLE, INPUT_X);

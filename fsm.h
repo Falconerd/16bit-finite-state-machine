@@ -146,7 +146,7 @@ update_state(FSM *fsm)
     {
         if (fsm->state == fsm->transitions[i])
         {
-            uint8_t next_state = ((fsm->results[(int)(i/4.f)]) << 4*i) & 0xf;
+            uint8_t next_state = ((fsm->results[(int)(i/4.f)]) >> 4*i) & 0xf;
             uint16_t inputs = fsm->state & 0xfff0;
 
             fsm->state = inputs | next_state;
